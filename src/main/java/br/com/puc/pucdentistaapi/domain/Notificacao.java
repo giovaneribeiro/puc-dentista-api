@@ -1,6 +1,6 @@
 package br.com.puc.pucdentistaapi.domain;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +22,7 @@ public class Notificacao {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
-  private Long id;
+  private Integer id;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "dentista_id", nullable = false)
@@ -37,6 +37,6 @@ public class Notificacao {
   @Column(name = "lida")
   private boolean lida;
 
-  @Column(name = "leitura", columnDefinition = "DATE")
-  private LocalDate leitura;
+  @Column(name = "leitura", columnDefinition = "TIMESTAMP")
+  private LocalDateTime leitura;
 }

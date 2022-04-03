@@ -1,5 +1,6 @@
 package br.com.puc.pucdentistaapi.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -16,8 +17,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "TB_DENTISTA_TERMO")
-public class DentistaTermo {
+@Table(name = "TB_TRATAMENTO_PAGAMENTO")
+public class TratamentoPagamento {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,16 +26,15 @@ public class DentistaTermo {
   private Integer id;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "dentista_id", nullable = false)
-  private Dentista dentista;
+  @JoinColumn(name = "tratamento_id", nullable = false)
+  private Tratamento tratamento;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "termo_id", nullable = false)
-  private TermoUso termo;
+  @Column(name = "conta")
+  private String conta;
 
-  @Column(name = "aceito")
-  private boolean aceito;
+  @Column(name = "valor")
+  private BigDecimal valor;
 
-  @Column(name = "aceitacao", columnDefinition = "TIMESTAMP")
-  private LocalDateTime aceitacao;
+  @Column(name = "pagamento", columnDefinition = "TIMESTAMP")
+  private LocalDateTime pagamento;
 }

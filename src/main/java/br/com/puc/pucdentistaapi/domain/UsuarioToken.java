@@ -16,8 +16,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "TB_DENTISTA_TERMO")
-public class DentistaTermo {
+@Table(name = "TB_USUARIO_TOKEN")
+public class UsuarioToken {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,16 +25,15 @@ public class DentistaTermo {
   private Integer id;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "dentista_id", nullable = false)
-  private Dentista dentista;
+  @JoinColumn(name = "usuario_id", nullable = false)
+  private Usuario usuario;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "termo_id", nullable = false)
-  private TermoUso termo;
+  @Column(name = "token")
+  private String token;
 
-  @Column(name = "aceito")
-  private boolean aceito;
+  @Column(name = "created_at", columnDefinition = "TIMESTAMP")
+  private LocalDateTime createdAt;
 
-  @Column(name = "aceitacao", columnDefinition = "TIMESTAMP")
-  private LocalDateTime aceitacao;
+  @Column(name = "expires_at", columnDefinition = "TIMESTAMP")
+  private LocalDateTime expiresAt;
 }

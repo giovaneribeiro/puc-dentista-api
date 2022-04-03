@@ -12,9 +12,9 @@
 	<artifactId>puc-dentista-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>puc-dentista-api</name>
-	<description>Demo project for Spring Boot</description>
+	<description>dominio de api para o portal do dentista</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
